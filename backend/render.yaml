@@ -1,0 +1,30 @@
+services:
+  # Backend API service
+  - type: web
+    name: pingcrm-backend
+    env: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: POSTGRES_USER
+        sync: false
+      - key: POSTGRES_PASSWORD
+        sync: false
+      - key: POSTGRES_SERVER
+        sync: false
+      - key: POSTGRES_PORT
+        sync: false
+      - key: POSTGRES_DB
+        sync: false
+      - key: SECRET_KEY
+        generateValue: true
+      - key: ALLOWED_ORIGINS
+        value: https://pingcrm-frontend.vercel.app
+    autoDeploy: true
+
+databases:
+  - name: pingcrm-db
+    databaseName: pingcrm
+    user: pingcrm
+    plan: free

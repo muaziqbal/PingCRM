@@ -1,0 +1,8 @@
+setup.py
+pingcrm.egg-info/PKG-INFO
+pingcrm.egg-info/SOURCES.txt
+pingcrm.egg-info/dependency_links.txt
+pingcrm.egg-info/requires.txt
+pingcrm.egg-info/top_level.txt
+tests/test_contacts.py
+tests/test_organizations.py
